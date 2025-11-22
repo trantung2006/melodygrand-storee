@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melody Grand: Nâng Tầm Âm Nhạc Trong Bạn</title>
+     <!-- Tải Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #eedddd;
+        }
+        .text-gold {
+            color: #b8860b; /* Màu vàng đồng */
+        }
+        .bg-gold {
+            background-color: #b8860b;
+        }
+        .border-gold {
+            border-color: #b8860b;
+        }
+        .nav-link:hover {
+            color: #b8860b;
+            transition: color 0.3s;
+        }
+    </style></head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3">
+                    <!-- Sử dụng hình ảnh logo bạn đã cung cấp -->
+                    <img src="https://scontent.fhan14-3.fna.fbcdn.net/v/t39.30808-6/581931038_122131144850974830_8990625932864666516_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=tBTI03M2TBcQ7kNvwGHZ40y&_nc_oc=AdnzAx7xtGexvRZ-Q4wIQxTX2-Junct1RS772dkvs9obGkLnAfmcP0aLm2wiMdsYy5ckWfbrM7S774XNf2ml34VT&_nc_zt=23&_nc_ht=scontent.fhan14-3.fna&_nc_gid=Dwq1AetudeBB6NF1pfSNag&oh=00_AfgpqUbbzM3kkd6-UX_fJrwUK654FloTwj0Swmssrvvstw&oe=6927A937" onerror="this.onerror=null;this.src='data:image/jpeg;base64,...(logo_base64_data)...';" alt="Melody Grand Logo" class="h-16 w-auto object-contain">
+                    <span class="text-4xl font-extrabold tracking-widest text-gray-900 uppercase">MELODY GRAND</span>
+                </a>
+<nav class="hidden md:flex space-x-4 font-medium items-center">
+    <a href="gioithieu.html" class="text-gray-800 nav-link px-3 py-1 border border-gold/50 rounded-lg bg-white hover:border-gold hover:text-gold hover:bg-gold/20 transition duration-150">Giới Thiệu</a>
+    <a href="grandpiano.html" class="text-gray-800 nav-link px-3 py-1 border border-gold/50 rounded-lg bg-white hover:border-gold hover:text-gold hover:bg-gold/20 transition duration-150">Grand Piano</a>
+    <a href="pianodien.html" class="text-gray-800 nav-link px-3 py-1 border border-gold/50 rounded-lg bg-white hover:border-gold hover:text-gold hover:bg-gold/20 transition duration-150">Piano Điện</a>
+    <a href="pianoco.html" class="text-gray-800 nav-link px-3 py-1 border border-gold/50 rounded-lg bg-white hover:border-gold hover:text-gold hover:bg-gold/20 transition duration-150">Piano Cơ</a>
+    <a href="hoctap.html" class="text-gray-800 nav-link px-3 py-1 border border-gold/50 rounded-lg bg-white hover:border-gold hover:text-gold hover:bg-gold/20 transition duration-150">Học Tập</a>
+    <a href="tintuc.html" class="text-gray-800 nav-link px-3 py-1 border border-gold/50 rounded-lg bg-white hover:border-gold hover:text-gold hover:bg-gold/20 transition duration-150">Tin Tức</a>
+    <a href="lienhe.html" class="ml-4 px-4 py-2 rounded-full bg-gold text-white font-semibold shadow-md hover:bg-yellow-700 transition duration-300">Liên Hệ</a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-gold focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
+                <a href="gioithieu.html" class="text-gray-600 hover:text-gold block px-3 py-2 rounded-md text-base font-medium">Giới Thiệu</a>
+                <a href="grandpiano.html" class="text-gray-600 hover:text-gold block px-3 py-2 rounded-md text-base font-medium">Grand Piano</a>
+                <a href="pianodien.html" class="text-gray-600 hover:text-gold block px-3 py-2 rounded-md text-base font-medium">Piano Điện</a>
+                <a href="pianoco.html" class="text-gray-600 hover:text-gold block px-3 py-2 rounded-md text-base font-medium">Piano Cơ</a>
+                <a href="hoctap.html" class="text-gray-600 hover:text-gold block px-3 py-2 rounded-md text-base font-medium">Học Tập</a>
+                <a href="tintuc.html" class="text-gray-600 hover:text-gold block px-3 py-2 rounded-md text-base font-medium">Tin Tức</a>
+                <a href="lienhe.html" class="w-2/3 mt-2 px-4 py-2 text-center rounded-full bg-gold text-white font-semibold shadow-md hover:bg-yellow-700 transition duration-300">Liên Hệ</a>
+    </div>
+            </div>
+        </div>
+    </header>
+
+    <style>
+        /* CSS CHUNG */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* CONTAINER cho nội dung bên trong, giữ cho văn bản dễ đọc */
+        .content-wrapper {
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 20px 40px;
+        }
+
+        /* KHU VỰC CHUNG (Header, Main, Footer) - Rộng 100% */
+        .full-width-section {
+            padding: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* HEADER */
+        .header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            border-bottom: 5px solid red;
+            border-top: 5px solid red;
+            padding: 30px 0;
+            text-align: center;
+        }
+        .header .logo {
+            margin: 0 auto 20px auto;
+            display: block;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #d4b89e; 
+            box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.2); 
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: white; 
+            margin: 0;
+            padding-top: 10px;
+        }
+        .header p {
+            font-style: italic;
+            color: #bdc3c7;
+            margin-top: 5px;
+            font-size: 1.1em;
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            background-color: white;
+            padding: 20px 0;
+            margin-bottom: 30px; 
+        }
+
+        /* Hình ảnh minh họa cho các phần - ĐỊNH DẠNG 800*450 VÀ CĂN GIỮA */
+        .section-image {
+            width: 800px;
+            height: 450px; 
+            display: block;
+            margin: 20px auto; 
+            object-fit: cover; 
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive cho ảnh: Đảm bảo ảnh không tràn màn hình nhỏ */
+        @media (max-width: 880px) {
+            .section-image {
+                width: 95%; 
+                height: auto; 
+                max-height: 450px;
+            }
+            .content-wrapper {
+                padding: 20px 20px; /* Giảm padding trên màn hình nhỏ */
+            }
+        }
+        
+        /* Tiêu đề trong nội dung chính */
+        .main-content h2, .main-content h3 {
+            color: #2c3e50; 
+            border-bottom: 2px solid #bdc3c7; 
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        /* Blockquote và Danh sách (giữ nguyên) */
+        blockquote {
+            background-color: #ecf0f1;
+            border-left: 5px solid #e74c3c; 
+            padding: 10px 20px;
+            margin: 20px 0;
+            color: #333;
+        }
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
+        ul li strong {
+            color: #e74c3c; 
+        }
+
+        /* Bảng (giữ nguyên) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #34495e; 
+            color: white;
+        }
+        
+        
+        /* FOOTER (giữ nguyên) */
+        .footer {
+            background-color: #2c3e50;
+            color: #aaa;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header full-width-section">
+        <div class="content-wrapper">
+            <img src="https://scontent.fhan14-3.fna.fbcdn.net/v/t39.30808-6/581931038_122131144850974830_8990625932864666516_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=xx602Yww_J8Q7kNvwFG-X0b&_nc_oc=AdleZhu_Km3GKlcSX3YES4oABwHhEaiQ9wdYJp2CaSPYqWZhtbKxmWts2CC4iqR-rfVTSglzrRPJIVqeNcYAlCZJ&_nc_zt=23&_nc_ht=scontent.fhan14-3.fna&_nc_gid=oZOviRpNlzfYKPXw1Zv_0A&oh=00_Afg9Icx5qdafXZaoO4V_VaBUSxVN44mFM9UJtgP_CwJiBA&oe=691A09B7" alt="Logo Melody Grand" class="logo">
+            <h1>MELODY GRAND</h1>
+            <p>Nơi âm nhạc là nguồn sống của bạn.</p>
+        </div>
+    </div>
+
+    <div class="main-content full-width-section">
+        <div class="content-wrapper">
+
+            <h2>🌟 Giới Thiệu Chung Về Melody Grand</h2>
+            <blockquote>
+                Melody Grand tự hào là một trong những nhà cung cấp và phân phối đàn piano hàng đầu tại Việt Nam. Với lịch sử hình thành và phát triển hơn hai thập kỷ, chúng tôi đã xây dựng được uy tín vững chắc, trở thành điểm đến đáng tin cậy cho cả nghệ sĩ chuyên nghiệp và những người mới bắt đầu hành trình âm nhạc. Chúng tôi không chỉ đơn thuần bán nhạc cụ, mà còn trao gửi niềm đam mê, chất lượng nghệ thuật và một di sản âm nhạc lâu dài đến từng gia đình Việt.
+            </blockquote>
+            
+            <p>
+                Được thành lập từ năm 2003, Melody Grand khởi đầu là một xưởng bảo trì và điều chỉnh piano nhỏ. Nhờ sự tận tâm với chất lượng âm thanh và dịch vụ chuyên nghiệp, chúng tôi nhanh chóng mở rộng thành hệ thống showroom và học viện piano toàn diện. Mục tiêu cốt lõi của chúng tôi là mang đến những cây đàn piano tốt nhất thế giới, được kiểm định nghiêm ngặt bởi các chuyên gia hàng đầu.
+            </p>
+
+            <h3>Giá trị cốt lõi & Cam kết</h3>
+            <ul>
+                <li><strong>Tầm nhìn:</strong> Trở thành thương hiệu số một, định hình chuẩn mực về chất lượng và giáo dục piano tại Đông Nam Á.</li>
+                <li><strong>Sứ mệnh:</strong> Khơi nguồn và nuôi dưỡng cảm hứng âm nhạc, biến ước mơ chơi piano của mọi người thành hiện thực.</li>
+                <li><strong>Chất lượng tuyệt đối:</strong> Mọi cây đàn tại Melody Grand, dù là mới hay đã qua sử dụng, đều trải qua quy trình **100 điểm kiểm tra** về âm thanh, bộ máy và thẩm mỹ trước khi đến tay khách hàng.</li>
+                <li><strong>Dịch vụ trọn đời:</strong> Chúng tôi cam kết bảo hành, bảo trì và hỗ trợ kỹ thuật trọn đời cho mọi sản phẩm Grand Piano đã bán ra.</li>
+            </ul>
+            
+            <p>
+                Với phương châm "Âm nhạc là di sản", Melody Grand không ngừng đầu tư vào công nghệ điều chỉnh đàn piano tiên tiến nhất, đồng thời hợp tác với các Học viện Âm nhạc quốc tế để cập nhật chương trình giảng dạy và nâng cao chất lượng đội ngũ kỹ thuật. Chúng tôi tin rằng, mỗi nốt nhạc vang lên từ cây đàn của Melody Grand đều phải mang sự hoàn hảo và truyền cảm hứng.
+            </p>
+            
+            <img src="https://vietnhaccenter.com/wp-content/uploads/2024/04/viet-nhac-center-la-showroom-chuyen-phan-phoi-dan-piano-chinh-hang-gia-re.jpg" alt="Toàn cảnh Showroom Melody Grand" class="section-image">
+
+            <h2>🎼 Dịch Vụ và Sản Phẩm Nổi Bật</h2>
+
+            <h3>1. Cửa Hàng Piano (Showroom)</h3>
+            <table>
+                <thead><tr><th>Loại Đàn</th><th>Đặc Điểm Nổi Bật</th><th>Dòng Sản Phẩm Tiêu Biểu</th></tr></thead>
+                <tbody>
+                    <tr><td>Piano Cơ</td><td>Âm thanh ấm áp, cộng hưởng tự nhiên, mang giá trị nghệ thuật cao.</td><td>Yamaha Grand, Kawai Upright, Steinway & Sons (nhập khẩu)</td></tr>
+                    <tr><td>Piano Điện/Digital</td><td>Thiết kế gọn nhẹ, đa dạng âm sắc, tích hợp công nghệ hiện đại.</td><td>Casio Celviano, Roland RP/FP Series</td></tr>
+                    <tr><td>Grand Piano</td><td>Chất lượng được đảm bảo 100%, bảo hành dài hạn.</td><td> Piano Nhật Bản .</td></tr>
+                </tbody>
+            </table>
+            <img src="https://pianohouse.vn/image/catalog/products/grand-piano/Kravitz%20Grand/new-grand.jpg" alt="Hình ảnh một cây Grand Piano trong showroom" class="section-image">
+
+            <h3>2. Chương Trình Học Tập & Đào Tạo</h3>
+            
+            <p>
+                Melody Grand Academy là nơi ươm mầm tài năng âm nhạc, cung cấp chương trình đào tạo piano toàn diện, được xây dựng dựa trên giáo trình quốc tế và kinh nghiệm giảng dạy thực tiễn. Chúng tôi tập trung vào việc phát triển cả kỹ năng biểu diễn lẫn cảm thụ âm nhạc của học viên.
+            </p>
+            
+            <h4>Phương pháp giảng dạy độc quyền:</h4>
+            <ul>
+                <li>Giảng viên: Đội ngũ giáo sư, thạc sĩ tốt nghiệp từ các Học viện Âm nhạc hàng đầu trong nước và quốc tế, có kinh nghiệm luyện thi chứng chỉ chuyên sâu.</li>
+                <li>Giáo trình: Kết hợp giữa giáo trình kinh điển (Czerny, Hanon, Bach) và các tài liệu hiện đại, giúp học viên phát triển toàn diện.</li>
+                <li>Môi trường: Lớp học được trang bị Grand Piano và phòng luyện tập tiêu chuẩn, tạo điều kiện tốt nhất cho việc học và thực hành.</li>
+            </ul>
+
+            <h4>Các khóa học tiêu biểu:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Khóa Học</th>
+                        <th>Đối Tượng</th>
+                        <th>Mục Tiêu Đạt Được</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Piano Khám phá (Dành cho trẻ em)</td>
+                        <td>Trẻ em 5 - 8 tuổi</td>
+                        <td>Kích thích tư duy âm nhạc, làm quen với nốt nhạc và nhịp điệu cơ bản.</td>
+                    </tr>
+                    <tr>
+                        <td>Piano Cơ bản (Beginner)</td>
+                        <td>Mọi lứa tuổi (từ 9 tuổi)</td>
+                        <td>Thành thạo đọc tổng phổ, kỹ thuật ngón cơ bản, chơi được các tác phẩm đơn giản.</td>
+                    </tr>
+                    <tr>
+                        <td>Luyện thi Chứng chỉ Quốc tế</td>
+                        <td>Học viên có trình độ trung cấp</td>
+                        <td>Đạt các cấp độ chứng chỉ ABRSM, Trinity College London (Grade 1 - 8).</td>
+                    </tr>
+                    <tr>
+                        <td>Piano Hiện đại & Đệm hát</td>
+                        <td>Thanh thiếu niên và người lớn</td>
+                        <td>Kỹ năng hòa âm, đệm hát, tự chuyển soạn và biểu diễn các ca khúc Pop/Jazz.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <img src="https://images2.thanhnien.vn/528068263637045248/2024/12/4/sunny-days-piano-1-17333208751742066677764.jpg" alt="Học viên đang học piano" class="section-image">
+
+
+            <h3>3. Dịch Vụ Kỹ Thuật Chuyên Nghiệp (Căng Dây Đàn & Bảo Trì)</h3>
+            
+            <p>
+                Melody Grand hiểu rằng độ chuẩn xác của âm thanh là yếu tố cốt lõi của một cây đàn piano chất lượng. Đội ngũ kỹ thuật viên của chúng tôi không chỉ là thợ sửa chữa mà còn là những chuyên gia thẩm âm, được đào tạo chuyên sâu về cấu trúc và nguyên lý hoạt động của các dòng piano cao cấp trên thế giới.
+            </p>
+
+            <h4>Đội ngũ & Chuyên môn</h4>
+            <ul>
+                <li><strong>Kỹ thuật viên trưởng:</strong> Sở hữu chứng chỉ Registered Piano Technician (RPT) từ Hiệp hội Kỹ thuật viên Piano Hoa Kỳ (PTG) hoặc tương đương.</li>
+                <li><strong>Kinh nghiệm:</strong> Chuyên xử lý các dòng đàn Grand Piano và Upright Piano từ các thương hiệu hàng đầu như Steinway & Sons, Yamaha, Kawai.</li>
+                <li><strong>Thiết bị:</strong> Sử dụng các công cụ điều chỉnh dây điện tử hiện đại nhất (như Tunelab, Sanderson Accu-Tuner) để đạt độ chính xác hoàn hảo.</li>
+            </ul>
+
+            <h4>Quy trình Căng Dây Đàn (Tuning) Chuẩn Quốc tế</h4>
+            <p>Đàn piano cơ cần được căng chỉnh dây định kỳ (khuyến nghị 2 lần/năm) để duy trì độ chuẩn xác của cao độ.</p>
+            <ol>
+                <li>*Kiểm tra tổng thể*: Đánh giá độ ẩm, nhiệt độ và tình trạng chung của bộ máy (Action).</li>
+                <li>*Điều chỉnh cao độ (Pitch Raise)*: Nếu đàn bị chùng dây nhiều, kỹ thuật viên sẽ kéo cao độ lên chuẩn A440 Hz.</li>
+                <li>*Căng dây tinh chỉnh (Fine Tuning)*: Điều chỉnh từng dây đàn để đạt được sự hòa âm hoàn hảo, loại bỏ độ chênh phách.</li>
+                <li>*Điều chỉnh bộ máy (Regulation)*: Tinh chỉnh lực phím, độ nhạy và hành trình búa đàn để tối ưu hóa cảm giác chơi.</li>
+                <li>*Thẩm âm cuối cùng*: Chơi thử các tác phẩm phức tạp để đảm bảo âm thanh đồng đều và chuẩn xác trên toàn bộ dải phím.</li>
+            </ol>
+            
+            <img src="https://pianocare.vn/wp-content/uploads/2022/09/tim-hieu-day-dan-piano.jpg" alt="Kỹ thuật viên đang căng dây đàn piano" class="section-image">
+
+           <h2>💬 Phản Hồi Từ Khách Hàng</h2>
+
+            <div class="review">
+                <p style="color: gold;">⭐️⭐️⭐️⭐️⭐️</p>
+                <p>"Mua đàn tại Melody Grand là một quyết định tuyệt vời. Cây Yamaha U3 tôi chọn có âm thanh tuyệt vời, và đội ngũ kỹ thuật căng dây rất chuyên nghiệp, cẩn thận. Dịch vụ hậu mãi rất chu đáo, họ luôn gọi điện hỏi thăm sau mỗi lần bảo trì."</p>
+                <p style="text-align: right;"><strong>— Chị Minh Ánh (Kiến trúc sư, TP.HCM)</strong></p>
+            </div>
+            
+            <div class="review">
+                <p style="color: gold;">⭐️⭐️⭐️⭐️⭐️</p>
+                <p>"Con tôi học piano ở đây được 1 năm. Giáo viên rất tận tâm, phương pháp sư phạm hiện đại giúp con tôi không chỉ biết chơi đàn mà còn thực sự yêu thích âm nhạc. Môi trường học tập ấm cúng và chuyên nghiệp."</p>
+                <p style="text-align: right;"><strong>— Anh Hoàng Nam (Phụ huynh học viên)</strong></p>
+            </div>
+            
+            <div class="review">
+                <p style="color: gold;">⭐️⭐️⭐️⭐️⭐️</p>
+                <p>"Tôi đã mua một chiếc Piano Digital Roland cho căn hộ của mình. Nhân viên tư vấn rất nhiệt tình, giải thích rõ ràng về các tính năng. Quá trình giao hàng và lắp đặt nhanh chóng, chu đáo. Rất hài lòng với chất lượng âm thanh so với mức giá."</p>
+                <p style="text-align: right;"><strong>— Anh Việt Bách (Chuyên viên IT, Hà Nội)</strong></p>
+            </div>
+            
+            <div class="review">
+                <p style="color: gold;">⭐️⭐️⭐️⭐️⭐️</p>
+                <p>"Tôi đã sử dụng dịch vụ căng dây đàn của Melody Grand nhiều lần. Kỹ thuật viên Tùng làm việc rất tỉ mỉ, giúp cây đàn cũ của tôi lấy lại được âm thanh chuẩn mực. Họ luôn đúng hẹn và cẩn thận khi làm việc tại nhà."</p>
+                <p style="text-align: right;"><strong>— Cô Mai Hương (Nghệ sĩ Piano tự do)</strong></p>
+            </div>
+
+            
+            
+        </div>
+    </div>
+
+
+
+    
+    <div class="footer">
+        &copy; 2025 MELODY GRAND. Đẳng cấp Piano.
+    </div>
+</body>
+</html>
