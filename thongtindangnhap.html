@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin Người dùng & Thay đổi Mật khẩu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Thiết lập font Inter cho giao diện */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Nền xám nhạt */
+        }
+        /* Custom style cho các trường thông tin không thay đổi */
+        .read-only-input {
+            background-color: #e5e7eb; /* Màu xám đậm hơn cho ô không thể chỉnh sửa */
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-4xl bg-white shadow-2xl rounded-xl overflow-hidden md:flex">
+        
+        <!-- Cột 1: Thông tin Cá nhân -->
+        <div class="p-8 md:w-1/2 border-b md:border-b-0 md:border-r border-gray-200">
+            <h1 class="text-3xl font-extrabold text-gray-900 mb-8 border-l-4 border-indigo-600 pl-4">
+                Thông tin Cá nhân
+            </h1>
+            
+            <form id="profileForm">
+                <!-- Tên người dùng -->
+                <div class="mb-5">
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Tên:</label>
+                    <input type="text" id="name" value="Nguyễn Văn A" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150" required>
+                </div>
+                
+                <!-- Email (Không cho phép chỉnh sửa - chỉ là mô phỏng) -->
+                <div class="mb-5">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email:</label>
+                    <input type="email" id="email" value="nguyenvana@example.com" class="w-full p-3 border border-gray-300 rounded-lg read-only-input" readonly>
+                </div>
+                
+                <!-- Nút Lưu Thông tin -->
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 mt-4">
+                    Lưu Thông tin
+                </button>
+            </form>
+        </div>
+
+        <!-- Cột 2: Thay đổi Mật khẩu -->
+        <div class="p-8 md:w-1/2">
+            <h1 class="text-3xl font-extrabold text-gray-900 mb-8 border-l-4 border-red-600 pl-4">
+                Thay đổi Mật khẩu
+            </h1>
+
+            <form id="passwordForm">
+                <!-- Mật khẩu Cũ -->
+                <div class="mb-5">
+                    <label for="oldPassword" class="block text-sm font-medium text-gray-700 mb-1">Mật khẩu cũ:</label>
+                    <input type="password" id="oldPassword" placeholder="Nhập mật khẩu cũ" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" required>
+                </div>
+                
+                <!-- Mật khẩu Mới -->
+                <div class="mb-5">
+                    <label for="newPassword" class="block text-sm font-medium text-gray-700 mb-1">Mật khẩu mới:</label>
+                    <input type="password" id="newPassword" placeholder="Nhập mật khẩu mới (ít nhất 6 ký tự)" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" required minlength="6">
+                </div>
+                
+                <!-- Xác nhận Mật khẩu Mới -->
+                <div class="mb-6">
+                    <label for="confirmNewPassword" class="block text-sm font-medium text-gray-700 mb-1">Xác nhận Mật khẩu mới:</label>
+                    <input type="password" id="confirmNewPassword" placeholder="Nhập lại mật khẩu mới" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" required>
+                </div>
+
+                <!-- Vùng thông báo (sẽ hiển thị thông báo thành công/lỗi từ JS) -->
+                <div id="messageBox" class="p-4 rounded-lg text-sm mb-4 hidden" role="alert"></div>
+                
+                <!-- Nút Cập nhật Mật khẩu -->
+                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg transition duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50">
+                    Cập nhật Mật khẩu
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        // Mật khẩu hiện tại mô phỏng (trong môi trường thực tế, mật khẩu cũ phải được xác thực trên server)
+        const SIMULATED_CURRENT_PASSWORD = "123456"; 
+
+        // Hàm hiển thị thông báo
+        function showMessage(message, type) {
+            const msgBox = document.getElementById('messageBox');
+            msgBox.textContent = message;
+            msgBox.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+
+            if (type === 'success') {
+                msgBox.classList.add('bg-green-100', 'text-green-800');
+            } else if (type === 'error') {
+                msgBox.classList.add('bg-red-100', 'text-red-800');
+            }
+            
+            // Tự động ẩn thông báo sau 5 giây
+            setTimeout(() => {
+                msgBox.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Xử lý sự kiện khi submit form thông tin cá nhân (Mô phỏng)
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            // Trong thực tế, bạn sẽ gửi dữ liệu này lên server
+            console.log(`Thông tin người dùng được lưu: Tên = ${name}`);
+            showMessage('Thông tin cá nhân đã được lưu thành công!', 'success');
+        });
+
+        // Xử lý sự kiện khi submit form thay đổi mật khẩu
+        document.getElementById('passwordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const oldPassword = document.getElementById('oldPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+            // 1. Kiểm tra Mật khẩu cũ (mô phỏng)
+            if (oldPassword !== SIMULATED_CURRENT_PASSWORD) {
+                showMessage('Lỗi: Mật khẩu cũ không đúng.', 'error');
+                return;
+            }
+
+            // 2. Kiểm tra Mật khẩu mới có trùng với Mật khẩu cũ không (Không nên dùng lại)
+            if (newPassword === oldPassword) {
+                showMessage('Lỗi: Mật khẩu mới phải khác mật khẩu cũ.', 'error');
+                return;
+            }
+
+            // 3. Kiểm tra Mật khẩu mới và Xác nhận có khớp nhau không
+            if (newPassword !== confirmNewPassword) {
+                showMessage('Lỗi: Mật khẩu mới và Xác nhận Mật khẩu mới không khớp.', 'error');
+                return;
+            }
+            
+            // 4. Kiểm tra độ dài mật khẩu (đã có minlength ở HTML, nhưng kiểm tra lại cho chắc)
+            if (newPassword.length < 6) {
+                showMessage('Lỗi: Mật khẩu mới phải có ít nhất 6 ký tự.', 'error');
+                return;
+            }
+
+            // Nếu mọi thứ hợp lệ (Trong thực tế: gửi lên server để hash và lưu)
+            console.log(`Mật khẩu đã được cập nhật thành công (mô phỏng). Mật khẩu mới: ${newPassword}`);
+            
+            showMessage('Mật khẩu của bạn đã được cập nhật thành công!', 'success');
+
+            // Xóa các trường input sau khi thành công
+            document.getElementById('oldPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmNewPassword').value = '';
+        });
+    </script>
+
+</body>
+</html>
